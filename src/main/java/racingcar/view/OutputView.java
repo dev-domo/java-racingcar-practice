@@ -9,8 +9,11 @@ public class OutputView {
     }
 
     public void promptForInputTryCount() {
-        System.out.println(OutputMessage.RACE_RESULT.valueOf());
         System.out.println(OutputMessage.INPUT_TRY_COUNT.valueOf());
+    }
+
+    public void showResultSequence() {
+        System.out.println(OutputMessage.RACE_RESULT.valueOf());
     }
 
     public void showResult(Cars cars) {
