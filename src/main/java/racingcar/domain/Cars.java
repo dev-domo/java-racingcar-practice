@@ -16,11 +16,7 @@ public class Cars {
 
     public List<String> findWinners(int maxForward) {
         List<String> carNames = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.isSamePosition(maxForward)) {
-                carNames.add(car.getName());
-            }
-        }
+        cars.stream().filter(car -> car.isSamePosition(maxForward)).forEach(car -> carNames.add(car.getName()));
         return carNames;
     }
 
