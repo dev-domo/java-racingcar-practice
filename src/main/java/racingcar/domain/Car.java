@@ -3,6 +3,8 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Car {
+    private static final int FORWARD_STANDARD = 4;
+
     private final String name;
     private int position;
 
@@ -16,7 +18,9 @@ public class Car {
     }
 
     public Car move(int step) {
-        position += step;
+        if (step >= FORWARD_STANDARD) {
+            position += step;
+        }
         return this;
     }
 

@@ -11,4 +11,11 @@ public class CarTest {
         car.move(4);
         assertThat(car).isEqualTo(new Car("pobi", 4));
     }
+
+    @Test
+    void 랜덤값이_3이하이면_자동차는_정지한다() {
+        Car car = new Car("pobi");
+        car.move(3);
+        assertThat(car).isEqualTo(new Car("pobi", 0));
+    }
 }
