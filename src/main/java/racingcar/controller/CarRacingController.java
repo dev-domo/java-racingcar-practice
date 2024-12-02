@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
@@ -27,8 +26,11 @@ public class CarRacingController {
         outputView.promptForInputTryCount();
         int tryCount = IntegerUtil.parse(inputView.answer());
 
-        for (int i = 0; i < tryCount; i++) {
-            cars.askGoForward(Randoms.pickNumberInRange(1, 9));
+        outputView.showResultSequence();
+        while (tryCount > 0) {
+            cars.askGoForward();
+            outputView.showResult(cars);
+            tryCount--;
         }
 
         outputView.showWinners(cars.findWinners(cars.findMaxForward()));
