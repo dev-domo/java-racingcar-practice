@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Cars {
+    private static final String JOIN_SEPARATOR = ", ";
     private static final String LINE_CHANGE = "\n";
 
     private final List<Car> cars;
@@ -17,10 +18,14 @@ public class Cars {
     public void askGoForward(int i) {
     }
 
-    public List<String> findWinners(int maxForward) {
+    public String findWinners(int maxForward) {
         List<String> carNames = new ArrayList<>();
         cars.stream().filter(car -> car.isSamePosition(maxForward)).forEach(car -> carNames.add(car.getName()));
-        return carNames;
+        return joinCars(carNames);
+    }
+
+    private String joinCars(List<String> carNames) {
+        return String.join(JOIN_SEPARATOR, carNames);
     }
 
     public int findMaxForward() {

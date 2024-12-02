@@ -29,7 +29,7 @@ public class CarsTest {
         jun.move(3);
         nunu.move(3);
 
-        assertThat(cars.findWinners(cars.findMaxForward())).isEqualTo(List.of(pobi.getName()));
+        assertThat(cars.findWinners(cars.findMaxForward())).isEqualTo("pobi");
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CarsTest {
         jun.move(4);
         nunu.move(3);
 
-        assertThat(cars.findWinners(cars.findMaxForward())).isEqualTo(List.of(pobi.getName(), jun.getName()));
+        assertThat(cars.findWinners(cars.findMaxForward())).isEqualTo("pobi, jun");
     }
 
     @Test
