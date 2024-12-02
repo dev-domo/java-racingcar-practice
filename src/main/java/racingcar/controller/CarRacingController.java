@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
 import racingcar.domain.parser.CarNameParser;
@@ -18,21 +17,35 @@ public class CarRacingController {
     }
 
     public void start() {
+        Cars cars = inputCars();
+        int tryCount = inputTryCount();
+
+        race(tryCount, cars);
+
+        announceWinners(cars);
+    }
+
+    private Cars inputCars() {
         outputView.promptForInputCarNames();
-        String names = inputView.answer();
-        List<String> carNames = CarNameParser.parse(names);
-        Cars cars = CarFactory.createCars(carNames);
+        String carNames = inputView.answer();
+        return CarFactory.createCars(CarNameParser.parse(carNames));
+    }
 
+    private int inputTryCount() {
         outputView.promptForInputTryCount();
-        int tryCount = IntegerUtil.parse(inputView.answer());
+        return IntegerUtil.parse(inputView.answer());
+    }
 
+    private void race(int tryCount, Cars cars) {
         outputView.showResultSequence();
         while (tryCount > 0) {
             cars.askGoForward();
             outputView.showResult(cars);
             tryCount--;
         }
+    }
 
+    private void announceWinners(Cars cars) {
         outputView.showWinners(cars.findWinners(cars.findMaxForward()));
     }
 }
