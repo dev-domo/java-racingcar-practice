@@ -24,6 +24,18 @@ public class Car {
         return this;
     }
 
+    public int calculateMaxForward(int maxForward) {
+        return Math.max(position, maxForward);
+    }
+
+    public boolean isSamePosition(int maxForward) {
+        return position == maxForward;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) {
