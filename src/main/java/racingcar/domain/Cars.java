@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Cars {
     private final List<Car> cars;
@@ -29,5 +30,21 @@ public class Cars {
             maxForward = car.calculateMaxForward(maxForward);
         }
         return maxForward;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof Cars cars1)) {
+            return false;
+        }
+        return Objects.equals(cars, cars1.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cars);
     }
 }
