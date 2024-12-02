@@ -49,4 +49,14 @@ public class CarTest {
         Car car = new Car("pobi");
         assertThat(car.getName()).isEqualTo("pobi");
     }
+
+    @Test
+    void 현재_전진_상태() {
+        Car car = new Car("nana");
+        car.move(4);
+        car.move(4);
+        car.move(4);
+
+        assertThat(car.toString()).isEqualTo("nana : ---");
+    }
 }

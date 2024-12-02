@@ -7,6 +7,7 @@ public class Car {
     private static final int DEFAULT_POSITION = 0;
     private static final int MAXIMUM_NAME_LENGTH = 5;
     private static final int FORWARD_STANDARD = 4;
+    private static final int MOVE_FORWARD = 1;
 
     private final String name;
     private int position;
@@ -29,7 +30,7 @@ public class Car {
 
     public Car move(int step) {
         if (step >= FORWARD_STANDARD) {
-            position += step;
+            position += MOVE_FORWARD;
         }
         return this;
     }
@@ -60,5 +61,10 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name, position);
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(position);
     }
 }

@@ -3,8 +3,11 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Cars {
+    private static final String LINE_CHANGE = "\n";
+
     private final List<Car> cars;
 
     public Cars(final List<Car> cars) {
@@ -42,5 +45,12 @@ public class Cars {
     @Override
     public int hashCode() {
         return Objects.hash(cars);
+    }
+
+    @Override
+    public String toString() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.joining(LINE_CHANGE)) + LINE_CHANGE;
     }
 }

@@ -15,7 +15,7 @@ public class CarsTest {
         pobi.move(4);
         jun.move(3);
 
-        assertThat(cars.findMaxForward()).isEqualTo(4);
+        assertThat(cars.findMaxForward()).isEqualTo(1);
     }
 
     @Test
@@ -44,5 +44,19 @@ public class CarsTest {
         nunu.move(3);
 
         assertThat(cars.findWinners(cars.findMaxForward())).isEqualTo(List.of(pobi.getName(), jun.getName()));
+    }
+
+    @Test
+    void 자동차들_현재_전진_상태_출력() {
+        Car pobi = new Car("pobi");
+        Car jun = new Car("jun");
+        Car nunu = new Car("nunu");
+        Cars cars = new Cars(List.of(pobi, jun, nunu));
+
+        pobi.move(4);
+        jun.move(4);
+        nunu.move(3);
+
+        assertThat(cars.toString()).isEqualTo("pobi : -\njun : -\nnunu : \n");
     }
 }
