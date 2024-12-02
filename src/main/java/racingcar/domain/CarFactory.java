@@ -1,10 +1,16 @@
-package racingcar.controller;
+package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Cars;
 
 public class CarFactory {
     public static Cars createCars(List<String> carNames) {
-        return null;
+        List<Car> cars = new ArrayList<>();
+        carNames.forEach(name -> cars.add(createCar(name)));
+        return new Cars(cars);
+    }
+
+    private static Car createCar(String name) {
+        return new Car(name);
     }
 }
