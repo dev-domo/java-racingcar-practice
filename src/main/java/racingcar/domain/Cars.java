@@ -1,11 +1,14 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Cars {
+    private static final int MINIMUM_RANDOM_BOUND = 1;
+    private static final int MAXIMUM_RANDOM_BOUND = 9;
     private static final String JOIN_SEPARATOR = ", ";
     private static final String LINE_CHANGE = "\n";
 
@@ -15,7 +18,8 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void askGoForward(int i) {
+    public void askGoForward() {
+        cars.forEach(car -> car.move(Randoms.pickNumberInRange(MINIMUM_RANDOM_BOUND, MAXIMUM_RANDOM_BOUND)));
     }
 
     public String findWinners(int maxForward) {
