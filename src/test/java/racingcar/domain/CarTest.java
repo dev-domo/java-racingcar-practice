@@ -1,12 +1,21 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.constants.ExceptionMessage;
 
 public class CarTest {
+    @Test
+    void 자동차_이름은_5자_이하여야_한다() {
+        assertThatThrownBy(() -> new Car("banana"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.INVALID_CAR_NAME_LENGTH.valueOf());
+    }
+
     @Test
     void 랜덤값이_4이상이면_자동차는_전진한다() {
         Car car = new Car("pobi");
