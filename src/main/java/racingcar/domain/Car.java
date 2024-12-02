@@ -1,15 +1,13 @@
 package racingcar.domain;
 
 import java.util.Objects;
-import racingcar.constants.ExceptionMessage;
 
 public class Car {
     private static final int DEFAULT_POSITION = 0;
-    private static final int MAXIMUM_NAME_LENGTH = 5;
     private static final int FORWARD_STANDARD = 4;
     private static final int MOVE_FORWARD = 1;
 
-    private final String name;
+    private final Name name;
     private int position;
 
     public Car(final String name) {
@@ -17,15 +15,12 @@ public class Car {
     }
 
     public Car(final String name, int position) {
-        checkNameLength(name);
-        this.name = name;
-        this.position = position;
+        this(new Name(name), position);
     }
 
-    private void checkNameLength(String name) {
-        if (name.length() > MAXIMUM_NAME_LENGTH) {
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_NAME_LENGTH.valueOf());
-        }
+    public Car(final Name name, int position) {
+        this.name = name;
+        this.position = position;
     }
 
     public Car move(int step) {
@@ -44,7 +39,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.toString();
     }
 
     @Override
