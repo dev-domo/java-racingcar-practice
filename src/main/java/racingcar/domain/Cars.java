@@ -9,9 +9,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private static final int MINIMUM_RANDOM_BOUND = 1;
-    private static final int MAXIMUM_RANDOM_BOUND = 9;
-
     private final List<Car> cars;
 
     public Cars(final List<Car> cars) {

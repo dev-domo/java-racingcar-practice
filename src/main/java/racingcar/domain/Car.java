@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class Car {
     private static final int DEFAULT_POSITION = 0;
-    private static final int FORWARD_STANDARD = 4;
 
     private final Name name;
     private final Position position;
