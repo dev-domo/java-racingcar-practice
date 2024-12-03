@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.strategy;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -9,8 +9,7 @@ public class RandomMoveStrategy implements MoveStrategy {
 
     @Override
     public boolean movable() {
-        int random = pickRandomNumber();
-        return random >= FORWARD_STANDARD;
+        return pickRandomNumber() >= FORWARD_STANDARD;
     }
 
     private int pickRandomNumber() {

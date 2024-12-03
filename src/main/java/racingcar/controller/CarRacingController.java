@@ -2,9 +2,9 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.CarsFactory;
-import racingcar.domain.MoveStrategy;
-import racingcar.domain.RandomMoveStrategy;
 import racingcar.domain.parser.CarNameParser;
+import racingcar.domain.strategy.MoveStrategy;
+import racingcar.domain.strategy.RandomMoveStrategy;
 import racingcar.util.IntegerUtil;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
