@@ -3,7 +3,6 @@ package racingcar.domain;
 import static racingcar.constants.Separators.JOIN_SEPARATOR;
 import static racingcar.constants.Separators.LINE_CHANGE;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -19,8 +18,8 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void askGoForward() {
-        cars.forEach(car -> car.move(Randoms.pickNumberInRange(MINIMUM_RANDOM_BOUND, MAXIMUM_RANDOM_BOUND)));
+    public void askGoForward(MoveStrategy moveStrategy) {
+        cars.forEach(car -> car.move(moveStrategy.movable()));
     }
 
     public String findWinners(int maxForward) {

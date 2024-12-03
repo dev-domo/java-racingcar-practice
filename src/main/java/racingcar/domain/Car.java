@@ -28,8 +28,8 @@ public class Car {
         this.position = position;
     }
 
-    public Car move(int step) {
-        if (step >= FORWARD_STANDARD) {
+    public Car move(boolean movable) {
+        if (movable) {
             position.increase();
         }
         return this;

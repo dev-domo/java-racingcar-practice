@@ -20,8 +20,8 @@ public class CarsTest {
         Car jun = new Car("jun");
         Cars cars = new Cars(List.of(pobi, jun));
 
-        pobi.move(4);
-        jun.move(3);
+        pobi.move(true);
+        jun.move(false);
 
         assertThat(cars.findMaxForward()).isEqualTo(1);
     }
@@ -33,9 +33,9 @@ public class CarsTest {
         Car nunu = new Car("nunu");
         Cars cars = new Cars(List.of(pobi, jun, nunu));
 
-        pobi.move(4);
-        jun.move(3);
-        nunu.move(3);
+        pobi.move(true);
+        jun.move(false);
+        nunu.move(false);
 
         assertThat(cars.findWinners(cars.findMaxForward())).isEqualTo("pobi");
     }
@@ -47,9 +47,9 @@ public class CarsTest {
         Car nunu = new Car("nunu");
         Cars cars = new Cars(List.of(pobi, jun, nunu));
 
-        pobi.move(4);
-        jun.move(4);
-        nunu.move(3);
+        pobi.move(true);
+        jun.move(true);
+        nunu.move(false);
 
         assertThat(cars.findWinners(cars.findMaxForward())).isEqualTo("pobi, jun");
     }
@@ -61,9 +61,9 @@ public class CarsTest {
         Car nunu = new Car("nunu");
         Cars cars = new Cars(List.of(pobi, jun, nunu));
 
-        pobi.move(4);
-        jun.move(4);
-        nunu.move(3);
+        pobi.move(true);
+        jun.move(true);
+        nunu.move(false);
 
         assertThat(cars.toString()).isEqualTo("pobi : -\njun : -\nnunu : \n");
     }

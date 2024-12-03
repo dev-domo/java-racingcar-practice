@@ -2,6 +2,8 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.CarsFactory;
+import racingcar.domain.MoveStrategy;
+import racingcar.domain.RandomMoveStrategy;
 import racingcar.domain.parser.CarNameParser;
 import racingcar.util.IntegerUtil;
 import racingcar.view.InputView;
@@ -38,8 +40,10 @@ public class CarRacingController {
 
     private void race(int tryCount, Cars cars) {
         outputView.showResultSequence();
+
+        MoveStrategy moveStrategy = new RandomMoveStrategy();
         while (tryCount > 0) {
-            cars.askGoForward();
+            cars.askGoForward(moveStrategy);
             outputView.showResult(cars);
             tryCount--;
         }

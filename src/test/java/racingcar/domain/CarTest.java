@@ -14,16 +14,16 @@ public class CarTest {
     }
 
     @Test
-    void 랜덤값이_4이상이면_자동차는_전진한다() {
+    void 자동차_전진() {
         Car car = new Car("pobi", 0);
-        car.move(4);
+        car.move(true);
         assertThat(car).isEqualTo(new Car("pobi", 1));
     }
 
     @Test
-    void 랜덤값이_3이하이면_자동차는_정지한다() {
+    void 자동차_정지() {
         Car car = new Car("pobi", 0);
-        car.move(3);
+        car.move(false);
         assertThat(car).isEqualTo(new Car("pobi", 0));
     }
 
@@ -50,9 +50,9 @@ public class CarTest {
     @Test
     void 현재_전진_상태() {
         Car car = new Car("nana");
-        car.move(4);
-        car.move(4);
-        car.move(4);
+        car.move(true);
+        car.move(true);
+        car.move(true);
 
         assertThat(car.toString()).isEqualTo("nana : ---");
     }
