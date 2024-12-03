@@ -1,14 +1,15 @@
 package racingcar.domain;
 
+import static racingcar.constants.Separators.NAME_POSITION_SEPARATOR;
+
 import java.util.Objects;
 
 public class Car {
     private static final int DEFAULT_POSITION = 0;
     private static final int FORWARD_STANDARD = 4;
-    private static final String NAME_POSITION_SEPARATOR = " : ";
 
     private final Name name;
-    private Position position;
+    private final Position position;
 
     public Car(final String name) {
         this(name, DEFAULT_POSITION);
@@ -22,7 +23,7 @@ public class Car {
         this(name, new Position(position));
     }
 
-    public Car(final Name name, Position position) {
+    public Car(final Name name, final Position position) {
         this.name = name;
         this.position = position;
     }
@@ -64,6 +65,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return name + NAME_POSITION_SEPARATOR + position.currentState();
+        return name + NAME_POSITION_SEPARATOR.valueOf() + position.currentState();
     }
 }

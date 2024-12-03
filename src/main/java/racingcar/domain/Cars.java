@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constants.Separators.JOIN_SEPARATOR;
+import static racingcar.constants.Separators.LINE_CHANGE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +12,6 @@ import java.util.stream.Collectors;
 public class Cars {
     private static final int MINIMUM_RANDOM_BOUND = 1;
     private static final int MAXIMUM_RANDOM_BOUND = 9;
-    private static final String JOIN_SEPARATOR = ", ";
-    private static final String LINE_CHANGE = "\n";
 
     private final List<Car> cars;
 
@@ -29,7 +30,7 @@ public class Cars {
     }
 
     private String joinCars(List<String> carNames) {
-        return String.join(JOIN_SEPARATOR, carNames);
+        return String.join(JOIN_SEPARATOR.valueOf(), carNames);
     }
 
     public int findMaxForward() {
@@ -60,6 +61,6 @@ public class Cars {
     public String toString() {
         return cars.stream()
                 .map(Car::toString)
-                .collect(Collectors.joining(LINE_CHANGE)) + LINE_CHANGE;
+                .collect(Collectors.joining(LINE_CHANGE.valueOf())) + LINE_CHANGE.valueOf();
     }
 }
