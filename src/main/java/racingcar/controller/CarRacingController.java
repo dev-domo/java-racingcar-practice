@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
+import racingcar.domain.CarsFactory;
 import racingcar.domain.parser.CarNameParser;
 import racingcar.util.IntegerUtil;
 import racingcar.view.InputView;
@@ -28,7 +28,7 @@ public class CarRacingController {
     private Cars inputCars() {
         outputView.promptForInputCarNames();
         String carNames = inputView.answer();
-        return CarFactory.createCars(CarNameParser.parse(carNames));
+        return CarsFactory.createCars(CarNameParser.parse(carNames));
     }
 
     private int inputTryCount() {
