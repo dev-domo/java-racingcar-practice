@@ -3,7 +3,6 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Position {
-    private static final int MOVE_FORWARD = 1;
     private static final String FORWARD_SIGN = "-";
 
     private int number;
@@ -13,7 +12,8 @@ public class Position {
     }
 
     public Position increase() {
-        return new Position(number + MOVE_FORWARD);
+        number++;
+        return this;
     }
 
     public int getLargerValue(int maxForward) {

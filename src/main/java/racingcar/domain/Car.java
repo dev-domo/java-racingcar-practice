@@ -55,7 +55,7 @@ public class Car {
         if (!(object instanceof Car car)) {
             return false;
         }
-        return position == car.position && Objects.equals(name, car.name);
+        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
     }
 
     @Override
