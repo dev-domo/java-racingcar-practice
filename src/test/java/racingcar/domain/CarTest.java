@@ -8,6 +8,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class CarTest {
     @Test
+    void 자동차_생성() {
+        Car car = new Car("pobi", 0);
+        assertThat(car).isEqualTo(new Car(new Name("pobi"), new Position(0)));
+    }
+
+    @Test
     void 랜덤값이_4이상이면_자동차는_전진한다() {
         Car car = new Car("pobi", 0);
         car.move(4);

@@ -7,6 +7,14 @@ import org.junit.jupiter.api.Test;
 
 public class CarsTest {
     @Test
+    void Cars_생성() {
+        Car pobi = new Car("pobi");
+        Car jun = new Car("jun");
+        Cars cars = new Cars(List.of(pobi, jun));
+        assertThat(cars).isEqualTo(new Cars(List.of(pobi, jun)));
+    }
+
+    @Test
     void 자동차_중_전진_최댓값_찾기() {
         Car pobi = new Car("pobi");
         Car jun = new Car("jun");
